@@ -149,30 +149,7 @@ async function run() {
             const result = await samsungCollection.findOne(query);
             res.send(result);
         });
-        app.get('/sony/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) }
-            const result = await sonyCollection.findOne(query);
-            res.send(result);
-        });
-        app.get('/google/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) }
-            const result = await googleCollection.findOne(query);
-            res.send(result);
-        });
-        app.get('/intel/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) }
-            const result = await intelCollection.findOne(query);
-            res.send(result);
-        });
-        app.get('/huawei/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: new ObjectId(id) }
-            const result = await huaweiCollection.findOne(query);
-            res.send(result);
-        });
+
     
 
         // Send a ping to confirm a successful connection
