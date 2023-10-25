@@ -125,7 +125,14 @@ async function run() {
             const products = await huaweiCollection.find({}).toArray();
             res.json(products);
         });
-    
+        app.get('/google', async (req, res) => {
+            const products = await googleCollection.find({}).toArray();
+            res.json(products);
+        });
+        app.get('/sony', async (req, res) => {
+            const products = await sonyCollection.find({}).toArray();
+            res.json(products);
+        });
         app.get('/mycart', async (req, res) => {
             const products = await MyCartCollection.find({}).toArray();
             res.json(products);
@@ -142,13 +149,30 @@ async function run() {
             const result = await samsungCollection.findOne(query);
             res.send(result);
         });
-        app.get('/samsung/:id', async (req, res) => {
+        app.get('/sony/:id', async (req, res) => {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
-            const result = await samsungCollection.findOne(query);
+            const result = await sonyCollection.findOne(query);
             res.send(result);
         });
-
+        app.get('/google/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await googleCollection.findOne(query);
+            res.send(result);
+        });
+        app.get('/intel/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await intelCollection.findOne(query);
+            res.send(result);
+        });
+        app.get('/huawei/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await huaweiCollection.findOne(query);
+            res.send(result);
+        });
     
 
         // Send a ping to confirm a successful connection
