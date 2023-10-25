@@ -125,14 +125,7 @@ async function run() {
             const products = await huaweiCollection.find({}).toArray();
             res.json(products);
         });
-        app.get('/google', async (req, res) => {
-            const products = await googleCollection.find({}).toArray();
-            res.json(products);
-        });
-        app.get('/sony', async (req, res) => {
-            const products = await sonyCollection.find({}).toArray();
-            res.json(products);
-        });
+    
         app.get('/mycart', async (req, res) => {
             const products = await MyCartCollection.find({}).toArray();
             res.json(products);
@@ -141,6 +134,12 @@ async function run() {
             const id = req.params.id;
             const query = { _id: new ObjectId(id) }
             const result = await productCollection.findOne(query);
+            res.send(result);
+        });
+        app.get('/samsung/:id', async (req, res) => {
+            const id = req.params.id;
+            const query = { _id: new ObjectId(id) }
+            const result = await samsungCollection.findOne(query);
             res.send(result);
         });
         app.get('/samsung/:id', async (req, res) => {
